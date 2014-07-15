@@ -1,0 +1,10 @@
+---
+# this role should be executed only at the control host. it expects to have internet connection to download python source
+#  sudo: yes
+#  gather_facts: False
+#  sudo: no
+- hosts: all
+
+  roles:
+#   - java
+   - monit
