@@ -28,7 +28,7 @@
 
 - name: create monitrc file
   template:
-    src="./roles/monit/templates/monitrc"
+    src="./monitrc"
     dest="{{monitrc_file_destiny}}/"
 
 - name: create link to monitrc file
