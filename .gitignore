@@ -1,7 +1,5 @@
 # VAGRANT STUFF
 /.vagrant
-provisioning/roles/java/files/jdk-7u45-linux-x64.gz
-provisioning/roles/monit/files/monit-5.8.1-linux-x64.tar.gz
 provisioning/roles/java/files/*.gz
 provisioning/roles/monit/files/*.gz
 provisioning/files/*.gz
