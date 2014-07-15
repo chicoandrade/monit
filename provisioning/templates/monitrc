@@ -1,0 +1,15 @@
+###############################################################################
+## Monit control file
+###############################################################################
+  set daemon 600
+  set logfile {{monitrc_files}}/log/monit.log
+  set idfile {{monitrc_files}}/id
+  set statefile {{monitrc_files}}/state
+  set eventqueue
+      basedir {{monitrc_files}}/events
+      slots 100                    
+ set httpd port 2801 and
+    use address localhost
+    allow localhost
+    allow ideais:ideais
+   include /etc/monit/conf.d/*

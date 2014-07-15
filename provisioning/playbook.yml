@@ -1,0 +1,21 @@
+---
+# this role should be executed only at the control host. it expects to have internet connection to download python source
+#  sudo: yes
+#  gather_facts: False
+#  roles:
+#  - { role: 'python_preparation', download_dir: "roles/python_preparation/files", version: "2.7.6" }
+#  sudo: no
+- hosts: all
+  vars:
+  - destiny_path: /home/vagrant
+  - java_file: jdk-7u45-linux-x64.gz
+  - java_orig_dir_name: jdk1.7.0_45
+  - monit_file: monit-5.8.1-linux-x64.tar.gz
+  - monit_orig_dir_name: monit-5.8.1
+  - monitrc_file_destiny: /home/vagrant/monit
+  - monitrc_files: /home/vagrant/monit/rc
+  - ssh_user: vagrant
+
+  roles:
+   - java
+   - monit

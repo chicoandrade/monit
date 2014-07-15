@@ -1,0 +1,5 @@
+andrade@astra:~/github/monit/provisioning/files$ ls -1
+jdk-7u45-linux-x64.gz
+monit-5.8.1-linux-x64.tar.gz
+
+andrade@astra:~/github/monit/provisioning/files$
