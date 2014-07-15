@@ -3,6 +3,16 @@
 
 - name: unzip monit file on destiny
   unarchive: src="./roles/monit/files/{{monit_file}}" dest="{{destiny_path}}/"
+  register: result
+  ignore_errors: True
+
+- name: download monit if doesnt exists
+  local_action: wget "{{monit_download_url}}/{{monit_version}}/{{monit_file}}" -P "./roles/monit/files/"
+  when: result|failed
+
+- name: trying again to unzip monit file on destiny
+  unarchive: src="./roles/monit/files/{{monit_file}}" dest="{{destiny_path}}/"
+  when: result|failed
 
 - name: changing dir name
   command: mv "{{destiny_path}}/{{monit_orig_dir_name}}" "{{destiny_path}}/monit"
