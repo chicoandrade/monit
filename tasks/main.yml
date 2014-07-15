@@ -2,7 +2,7 @@
 # MOMNIT CONFIGURATION
 
 - name: unzip monit file on destiny
-  unarchive: src="./files/{{monit_file}}" dest="{{destiny_path}}/"
+  unarchive: src="./{{monit_file}}" dest="{{destiny_path}}/"
   register: result
   ignore_errors: True
 
