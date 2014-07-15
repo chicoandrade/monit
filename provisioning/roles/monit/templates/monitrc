@@ -9,7 +9,5 @@
       basedir {{monitrc_files}}/events
       slots 100                    
  set httpd port 2801 and
-    use address localhost
-    allow localhost
     allow ideais:ideais
    include /etc/monit/conf.d/*

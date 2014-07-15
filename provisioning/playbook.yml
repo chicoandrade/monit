@@ -17,5 +17,5 @@
   - ssh_user: vagrant
 
   roles:
-   - java
+#   - java
    - monit

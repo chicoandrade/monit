@@ -21,5 +21,10 @@
     src="./roles/monit/templates/monitrc"
     dest="{{monitrc_file_destiny}}/"
 
+- name: create link to monitrc file
+  command: ln -sf "{{destiny_path}}/monit/monitrc" "~/.monitrc"
+
 - name: changing monitrc permissions
   action: file path={{monitrc_file_destiny}}/monitrc mode=0700
+  notify:
+    - start monit
