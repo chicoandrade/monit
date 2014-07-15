@@ -1,7 +1,11 @@
 # VAGRANT STUFF
 /.vagrant
 provisioning/roles/java/files/*.gz
+provisioning/roles/java/files/*.zip
+provisioning/roles/java/files/*.tar
 provisioning/roles/monit/files/*.gz
+provisioning/roles/monit/files/*.zip
+provisioning/roles/monit/files/*.tar
 provisioning/files/*.gz
 provisioning/files/*.zip
 provisioning/files/*.tar
