@@ -2,7 +2,7 @@
 # MOMNIT CONFIGURATION
 
 - name: unzip monit file on destiny
-  unarchive: src="./files/{{monit_file}}" dest="{{destiny_path}}/"
+  unarchive: src="./roles/monit/files/{{monit_file}}" dest="{{destiny_path}}/"
 
 - name: changing dir name
   command: mv "{{destiny_path}}/{{monit_orig_dir_name}}" "{{destiny_path}}/monit"
@@ -18,7 +18,7 @@
 
 - name: create monitrc file
   template:
-    src="./templates/monitrc"
+    src="./roles/monit/templates/monitrc"
     dest="{{monitrc_file_destiny}}/"
 
 - name: changing monitrc permissions
