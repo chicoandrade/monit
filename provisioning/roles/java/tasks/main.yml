@@ -1,9 +1,0 @@
----
-# JAVA CONFIGURATION
-
-- name: unzip JAVA file to remote machine
-  unarchive: src="./roles/java/files/{{java_file}}" dest="{{destiny_path}}/"
-
-- name: changing dir name
-  command: mv "{{destiny_path}}/{{java_orig_dir_name}}" "{{destiny_path}}/java"
-
