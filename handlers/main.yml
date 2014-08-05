@@ -1,6 +1,6 @@
 ---
 - name: start monit
-  command: "{{destiny_path}}/monit/bin/monit"
+  command: "{{monit_installation_dir}}/monit/bin/monit"
 
 - name: reload monit
-  command: "{{destiny_path}}/monit/bin/monit reload"
+  command: "{{monit_installation_dir}}/monit/bin/monit reload"

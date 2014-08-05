@@ -1,40 +1,30 @@
 ---
 # MOMNIT CONFIGURATION
 
-- name: unzip monit file on destiny
-  unarchive: src="./{{monit_file}}" dest="{{destiny_path}}/"
-  register: result
-  ignore_errors: True
-
 - name: download monit if doesnt exists
-  local_action: wget "{{monit_download_url}}/{{monit_version}}/{{monit_file}}" -P "./roles/monit/files/"
-  when: result|failed
+  local_action: >
+    get_url 
+      url="{{monit_download_url}}/{{monit_version}}/{{monit_package}}"
+      dest="{{monit_download_dir}}/{{monit_package}}"
+  tags: download
 
-- name: trying again to unzip monit file on destiny
-  unarchive: src="./roles/monit/files/{{monit_file}}" dest="{{destiny_path}}/"
-  when: result|failed
+- name: create monit directories
+  file:
+    path="{{item}}"
+    state=directory
+  with_items:
+    - "{{monit_installation_dir}}/rc/"
+    - "{{monit_installation_dir}}/rc/log/"
+    - "{{monit_installation_dir}}/rc/events"
 
-- name: changing dir name
-  command: mv "{{destiny_path}}/{{monit_orig_dir_name}}" "{{destiny_path}}/monit"
-
-- name: create monit rc dir
-  command: mkdir "{{destiny_path}}/monit/rc/"
-
-- name: create monit log dir
-  command: mkdir "{{destiny_path}}/monit/rc/log/"
-
-- name: create monit events dir
-  command: mkdir "{{destiny_path}}/monit/rc/events"
+- name: unzip monit file on destiny
+  unarchive: 
+    src="{{monit_download_dir}}/{{monit_package}}"
+    dest="{{monit_installation_dir}}/"
+  tags: unpack
 
 - name: create monitrc file
   template:
     src="./monitrc"
-    dest="{{monitrc_file_destiny}}/"
-
-- name: create link to monitrc file
-  command: ln -sf "{{destiny_path}}/monit/monitrc" "~/.monitrc"
-
-- name: changing monitrc permissions
-  action: file path={{monitrc_file_destiny}}/monitrc mode=0700
-  notify:
-    - start monit
+    dest="{{monit_installation_dir}}/monitrc"
+    mode=0700

@@ -1,7 +1,9 @@
 ---
 
 # Diretorio onde o monit sera instalado
-destiny_path: "/home/vagrant"
+monit_installation_dir: "/home/vagrant/monit"
+
+monit_download_dir: '~/Downloads'
 
 # Usados apenas na instalação da role java, nao usado na role monit
 java_file: "jdk-7u45-linux-x64.gz"
@@ -14,16 +16,13 @@ monit_download_url: "http://mmonit.com/monit/dist/binary/"
 monit_version: "5.8.1"
 
 # Nome do arquivo a ser baixado e instalado
-monit_file: "monit-5.8.1-linux-x64.tar.gz"
+monit_package: "monit-5.8.1-linux-x64.tar.gz"
 
 # Diretorio resultado da extração do arquivo compactado
 monit_orig_dir_name: "monit-5.8.1"
 
-# Diretorio onde o monitrc (config) sera alocado
-monitrc_file_destiny: "{{destiny_path}}/monit"
-
 # Diretorio onde estarão os arquivos usados pelo monig (statefile, id, log)
-monitrc_files: "{{destiny_path}}/monit/rc"
+monitrc_files: "{{monit_installation_dir}}/rc"
 
 # Usuario usado pelo vagrant
 ssh_user: "vagrant"
