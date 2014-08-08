@@ -10,3 +10,5 @@
       slots 100                    
  set httpd port 2812 and
     allow ideais:ideais
+  
+  include {{monit_extra_checks_dir}}/*
