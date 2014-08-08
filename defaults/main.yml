@@ -24,5 +24,8 @@ monit_orig_dir_name: "monit-5.8.1"
 # Diretorio onde estarão os arquivos usados pelo monig (statefile, id, log)
 monitrc_files: "{{monit_installation_dir}}/rc"
 
+# Diretorio onde estarão os arquivos de check extras carregados pelo monitrc
+monit_include_checks_dir: "{{monit_installation_dir}}/checks"
+
 # Usuario usado pelo vagrant
 ssh_user: "vagrant"
