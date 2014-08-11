@@ -17,6 +17,7 @@
     - "{{monit_installation_dir}}/rc/log/"
     - "{{monit_installation_dir}}/rc/events"
     - "{{monit_include_checks_dir}}"
+    - "{{monit_include_scripts_dir}}"
 
 - name: unzip monit file on destiny
   unarchive: 
