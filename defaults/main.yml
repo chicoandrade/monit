@@ -27,5 +27,8 @@ monitrc_files: "{{monit_installation_dir}}/rc"
 # Diretorio onde estarão os arquivos de check extras carregados pelo monitrc
 monit_include_checks_dir: "{{monit_installation_dir}}/checks"
 
+# Diretorio onde estarão os scripts usados pelo monit nos seus checks
+monit_include_scripts_dir: "{{monit_installation_dir}}/scripts"
+
 # Usuario usado pelo vagrant
 ssh_user: "vagrant"
