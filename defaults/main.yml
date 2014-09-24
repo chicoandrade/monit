@@ -1,5 +1,8 @@
 ---
 
+monit_user: 'cloudopen'
+monit_group: 'cloudopen'
+
 # Diretorio onde o monit sera instalado
 monit_installation_dir: "/home/vagrant/monit"
 
@@ -29,6 +32,3 @@ monit_include_checks_dir: "{{monit_installation_dir}}/checks"
 
 # Diretorio onde estarão os scripts usados pelo monit nos seus checks
 monit_include_scripts_dir: "{{monit_installation_dir}}/scripts"
-
-# Usuario usado pelo vagrant
-ssh_user: "vagrant"

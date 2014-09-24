@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+  - { role: monit, monit_installation_dir: '/opt/monit/', monit_user: 'cloudopen' , monit_group: 'cloudopen' }

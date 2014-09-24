@@ -1,0 +1,2 @@
+#!/bin/bash
+su {{monit_user}} -c '{{monit_installation_dir}}/{{monit_orig_dir_name}}/bin/monit -c {{monit_installation_dir}}/monitrc'

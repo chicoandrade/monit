@@ -1,6 +1,5 @@
 ---
-# MOMNIT CONFIGURATION
-
+# MONIT CONFIGURATION
 - name: download monit if doesnt exists
   local_action: >
     get_url 
@@ -9,10 +8,14 @@
   tags: download
 
 - name: create monit directories
+  sudo: yes
   file:
     path="{{item}}"
     state=directory
+    owner="{{monit_user}}"
+    group="{{monit_group}}"
   with_items:
+    - "{{monit_installation_dir}}"
     - "{{monit_installation_dir}}/rc/"
     - "{{monit_installation_dir}}/rc/log/"
     - "{{monit_installation_dir}}/rc/events"
@@ -30,3 +33,21 @@
     src="./monitrc"
     dest="{{monit_installation_dir}}/monitrc"
     mode=0700
+
+- name: create monit file to start on init
+  sudo: yes
+  template:
+    src="./monit"
+    dest="/etc/init.d/"
+    mode=0755
+  ignore_errors: yes
+
+- name: create link to start monit on init
+  sudo: yes
+  file: 
+    src="/etc/init.d/monit"
+    dest="/etc/rc2.d/S20monit"
+    owner=root
+    group=root
+    state=link
+  ignore_errors: yes
