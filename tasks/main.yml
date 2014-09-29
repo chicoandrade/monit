@@ -1,6 +1,7 @@
 ---
 # MONIT CONFIGURATION
 - name: download monit if doesnt exists
+  sudo: false
   local_action: >
     get_url 
       url="{{monit_download_url}}/{{monit_version}}/{{monit_package}}"
