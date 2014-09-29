@@ -6,7 +6,7 @@ monit_group: 'cloudopen'
 # Diretorio onde o monit sera instalado
 monit_installation_dir: "/home/vagrant/monit"
 
-monit_download_dir: '~/Downloads'
+monit_download_dir: '/tmp/'
 
 # Usados apenas na instalação da role java, nao usado na role monit
 java_file: "jdk-7u45-linux-x64.gz"
